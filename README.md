@@ -1,7 +1,6 @@
 # Beadando
 Alkalmazás fejlesztés C beadandó (Horváth Kristóf, Nemes László) gyakorlatvezető: Rakonczai Sándor.
 
-<<<<<<< HEAD
 Horváth Kristóf : BQFD6W
 Nemes László : RVR55V
 
@@ -38,6 +37,3 @@ Szakterületi fogalomjegyzék:
 	
 Szerepkörök: Egységes feladat elosztás, épp aktuális feladat alapján. Megbeszéléseket követően.
 			 Adott feladat osztály bontásban való elkészítése.
-=======
-Családi todo
->>>>>>> f224d8d6db54fd8d06724091dc2cb6ded29be4d6
