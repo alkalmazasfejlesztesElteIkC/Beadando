@@ -1,5 +1,5 @@
 # Családi TODO
-Alkalmazás fejlesztés C beadandó (Horváth Kristóf, Nemes László) gyakorlatvezető: Rakonczai Sándor.
+Alkalmazás fejlesztés C beadandó (Horváth Kristóf, Nemes László) gyakorlatvezető: Rakonczai Sándor
 
 Horváth Kristóf : BQFD6W
 Nemes László : RVR55V
