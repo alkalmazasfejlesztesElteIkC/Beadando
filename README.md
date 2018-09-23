@@ -7,18 +7,18 @@ Nemes László : RVR55V
 Feladat: Családi TODO
 
 Feladat Funkcionális Követelményei:
-	Biztosítani kell a megfelelő autentikációt, első körben regisztráció, majd a belépési felület és a kijelentkezés visszajelzésére szükséges felület.
-		Reakciók: A regisztráció folyamáán a kitöltött mezők adatait ellenőrizni kell bozonyos esetekben, hogy megfelelő adatot adott meg a regisztrálni kívánó felhasznló.
-		Például: Email cím helyes szintaktika.
-		Bejelentkezésnél megfelelő felhasználó és jeszó párt ad meg bejelentkezéskor, ha hibás valamely adat jelezni kell a felhasználó felé.
-	Bejelentkezést követően a teendők listáját látja a felhasználó, szűrési lehetőség biztosítása ünmagára és más családtagokra.
-		Reakció: Bejeletkezést követően a felhasználó a teendők litáját látja, amin szűréseket végezhet (pl: Saját feladataira szűr, családtag feladataira szűr)
-	Biztosítani kell a feladatok felvételét és törlését.
-		Reakció: Felhasználónak képesnek kell lennie Feladat felvételére és törlésére is.
-	A teendő listán biztosítani kell alapvető műveleteket: Listázás, Keresés, Megtekint, Visszajelzés.
-		Reakció: A feladatokon lehetőságet kell biztosítani különböző módosítások végrehajtására, állapot jelzésére -> (aktív,elkészült)
-	A fent említett műveletek végrehajtás után egyértelműnek kell lennie a többi felhasználó számára is. (Ha elvégzett a feladat legyen egyértelmű.)
-		Reakció: A fent említett módon a feladatok állapotának és annak változásának egyértelműnek és jól láthatónak kell lennie.
+ 1. Biztosítani kell a megfelelő autentikációt, első körben regisztráció, majd a belépési felület és a kijelentkezés visszajelzésére szükséges felület.
+	1. Reakciók: A regisztráció folyamáán a kitöltött mezők adatait ellenőrizni kell bozonyos esetekben, hogy megfelelő adatot adott meg a regisztrálni kívánó felhasznló.
+	2. Például: Email cím helyes szintaktika.
+2. Bejelentkezésnél megfelelő felhasználó és jeszó párt ad meg bejelentkezéskor, ha hibás valamely adat jelezni kell a felhasználó felé.
+2. Bejelentkezést követően a teendők listáját látja a felhasználó, szűrési lehetőség biztosítása ünmagára és más családtagokra.
+	1. Reakció: Bejeletkezést követően a felhasználó a teendők litáját látja, amin szűréseket végezhet (pl: Saját feladataira szűr, családtag feladataira szűr)
+3. Biztosítani kell a feladatok felvételét és törlését.
+	1. Reakció: Felhasználónak képesnek kell lennie Feladat felvételére és törlésére is.
+4. A teendő listán biztosítani kell alapvető műveleteket: Listázás, Keresés, Megtekint, Visszajelzés.
+	1. Reakció: A feladatokon lehetőságet kell biztosítani különböző módosítások végrehajtására, állapot jelzésére -> (aktív,elkészült)
+5. A fent említett műveletek végrehajtás után egyértelműnek kell lennie a többi felhasználó számára is. (Ha elvégzett a feladat legyen egyértelmű.)
+	1. Reakció: A fent említett módon a feladatok állapotának és annak változásának egyértelműnek és jól láthatónak kell lennie.
 
 Feladat nem funkcionális követelményei:
 	Letisztult és egyértelmű felhasználói felület, ami mindenki számára könnyen áttekinthető.
