@@ -6,7 +6,7 @@ Nemes László : RVR55V
 
 Feladat: Családi TODO
 
-Feladat Funkcionális Követelményei:
+## Feladat Funkcionális Követelményei:
  1. Biztosítani kell a megfelelő autentikációt, első körben regisztráció, majd a belépési felület és a kijelentkezés visszajelzésére szükséges felület.
 	1. Reakciók: A regisztráció folyamáán a kitöltött mezők adatait ellenőrizni kell bozonyos esetekben, hogy megfelelő adatot adott meg a regisztrálni kívánó felhasznló.
 	2. Például: Email cím helyes szintaktika.
@@ -20,12 +20,12 @@ Feladat Funkcionális Követelményei:
 5. A fent említett műveletek végrehajtás után egyértelműnek kell lennie a többi felhasználó számára is. (Ha elvégzett a feladat legyen egyértelmű.)
 	1. Reakció: A fent említett módon a feladatok állapotának és annak változásának egyértelműnek és jól láthatónak kell lennie.
 
-Feladat nem funkcionális követelményei:
-	Letisztult és egyértelmű felhasználói felület, ami mindenki számára könnyen áttekinthető.
-	Termék követelményei: Webes felületen futó alkalmazás, megfelelő válaszidővel és gyorsaséggal megbízhatóan használhatónak kell lennie.
-		Amelyet Java Sprig Boot, Java, JavaScript, Angular, HTML+CSS felhasználásaval készül el.
-	Szervezeti követelmény: Az alkalmazásnak a felnt említett fnkcionális követelméyneknek eleget kell tennie.
-	Külső Követelmény: A felhasználók adatainak megfelelő menedzselése, és biztosítása, hogy ne kerüljön illetéktelen kezekbe.
+## Feladat nem funkcionális követelményei:
+ - Letisztult és egyértelmű felhasználói felület, ami mindenki számára könnyen áttekinthető.
+ - Termék követelményei: Webes felületen futó alkalmazás, megfelelő válaszidővel és gyorsaséggal megbízhatóan használhatónak kell lennie.
+ - Amelyet Java Sprig Boot, Java, JavaScript, Angular, HTML+CSS felhasználásaval készül el.
+ - Szervezeti követelmény: Az alkalmazásnak a felnt említett fnkcionális követelméyneknek eleget kell tennie.
+ - Külső Követelmény: A felhasználók adatainak megfelelő menedzselése, és biztosítása, hogy ne kerüljön illetéktelen kezekbe.
 	
 Szakterületi fogalomjegyzék:
 	Felhasználó: Egy családtag aki regisztrált az alkalmazásba, minden ilyen felhasználó azonos rangú.
