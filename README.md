@@ -37,3 +37,4 @@ Szakterületi fogalomjegyzék:
 	
 Szerepkörök: Egységes feladat elosztás, épp aktuális feladat alapján. Megbeszéléseket követően.
 			 Adott feladat osztály bontásban való elkészítése.
+                         
