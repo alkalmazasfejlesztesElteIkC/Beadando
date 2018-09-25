@@ -36,6 +36,7 @@ Feladat: Családi TODO
  - Teendők Listája: A feladatok összesége. Mind a végrehajtott, de még nem törölt és az aktív állapotú feladatokat is magába foglaló lista.
 	
 ## Szerepkörök: 
-1. Egységes feladat elosztás, épp aktuális feladat alapján. Megbeszéléseket követően.
-	1. Adott feladat osztály bontásban való elkészítése.
+ 1. Több szerepkör is szükséges a megfeleő adminisztráció vezetésére, és a felhasználás megfelelő lebonyolítás érdekében
+ 	- Szülő és Gyerek jogviszony 
+	- Szűlöknek biztosítani kell törlés jogot, a gyerekeknek ez nem elérhető.
                          
