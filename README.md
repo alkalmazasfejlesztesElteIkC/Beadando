@@ -8,7 +8,7 @@ Feladat: Családi TODO
 
 ## Feladat Funkcionális Követelményei:
  1. Biztosítani kell a megfelelő autentikációt, első körben regisztráció, majd a belépési felület és a kijelentkezés visszajelzésére szükséges felület.
-	1. Reakciók: A regisztráció folyamáán a kitöltött mezők adatait ellenőrizni kell bozonyos esetekben, hogy megfelelő adatot adott meg a regisztrálni kívánó felhasznló.
+	1. Reakciók: A regisztráció folyamán a kitöltött mezők adatait ellenőrizni kell bizonyos esetekben, hogy megfelelő adatot adott meg a regisztrálni kívánó felhasznló.
 	2. Például: Email cím helyes szintaktika.
 2. Bejelentkezésnél megfelelő felhasználó és jeszó párt ad meg bejelentkezéskor, ha hibás valamely adat jelezni kell a felhasználó felé.
 2. Bejelentkezést követően a teendők listáját látja a felhasználó, szűrési lehetőség biztosítása ünmagára és más családtagokra.
@@ -23,7 +23,7 @@ Feladat: Családi TODO
 ## Feladat nem funkcionális követelményei:
  1. Letisztult és egyértelmű felhasználói felület, ami mindenki számára könnyen áttekinthető.
 	- Termék követelményei: Webes felületen futó alkalmazás, megfelelő válaszidővel és gyorsaséggal megbízhatóan használhatónak kell lennie.
-	 - Amelyet Java Sprig Boot, Java, JavaScript, Angular, HTML+CSS felhasználásaval készül el.
+	 - Amelyet Java Sprig Boot, Java, JavaScript, Bootstrap, HTML+CSS felhasználásaval készül el.
   2. Szervezeti követelmény: Az alkalmazásnak a felnt említett fnkcionális követelméyneknek eleget kell tennie.
   3. Külső Követelmény: A felhasználók adatainak megfelelő menedzselése, és biztosítása, hogy ne kerüljön illetéktelen kezekbe.
 	
