@@ -33,10 +33,10 @@ public class User {
     private String status;
 
     @OneToMany(mappedBy = "lead")
-    private List<Task> task;
+    private List<Task> tasksTolead;
 
     @ManyToMany
     @JoinTable
-    private List<Task> tasktoDos;
+    private List<Task> tasksToDo;
 
 }

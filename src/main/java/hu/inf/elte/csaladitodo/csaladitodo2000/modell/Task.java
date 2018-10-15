@@ -37,7 +37,7 @@ public class Task {
     @JsonIgnore
     private User lead;
 
-    @ManyToMany(mappedBy = "tasktoDos")
+    @ManyToMany(mappedBy = "tasksToDo")
     @JsonIgnore
     private List<User> workers;
 
