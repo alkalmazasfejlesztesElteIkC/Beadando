@@ -5,18 +5,19 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import hu.inf.elte.csaladitodo.csaladitodo2000.modell.User;
-import hu.inf.elte.csaladitodo.csaladitodo2000.repository.PostRepository;
+import hu.inf.elte.csaladitodo.csaladitodo2000.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Service
-public class PostService {
+public class UserService {
 
     @Autowired
-    private PostRepository userRepository;
+    private UserRepository userRepository;
 
     public List<User> findAll() {
         return userRepository.findAll();
     }
+
 	
 }
