@@ -23,7 +23,7 @@ Feladat: Családi TODO
 ## Feladat nem funkcionális követelményei:
  1. Letisztult és egyértelmű felhasználói felület, ami mindenki számára könnyen áttekinthető.
 	- Termék követelményei: Webes felületen futó alkalmazás, megfelelő válaszidővel és gyorsaséggal megbízhatóan használhatónak kell lennie.
-	 - Amelyet Java Sprig Boot, Java, JavaScript, Bootstrap, HTML+CSS felhasználásaval készül el.
+	 - Amelyet Java Sprig Boot, Java, Angular, Bootstrap, HTML+CSS felhasználásaval készül el.
   2. Szervezeti követelmény: Az alkalmazásnak a felnt említett fnkcionális követelméyneknek eleget kell tennie.
   3. Külső Követelmény: A felhasználók adatainak megfelelő menedzselése, és biztosítása, hogy ne kerüljön illetéktelen kezekbe.
 	
@@ -39,4 +39,13 @@ Feladat: Családi TODO
  1. Több szerepkör is szükséges a megfeleő adminisztráció vezetésére, és a felhasználás megfelelő lebonyolítás érdekében
  	- Szülő és Gyerek jogviszony 
 	- Szűlöknek biztosítani kell törlés jogot, a gyerekeknek ez nem elérhető.
+	
+## Adatbázisterv:
+ 1. Az alkalmazás alapvetően négy modellen alapszik:
+ 	- User -> (Maga a felhasználó aki hasznája az alkalmazást, ( feladatokat hajt végre,tartja számon (ha szülő ki is írhat)).
+	- Task -> a feladat ami kiírásra került, itt megtalálható a kiíró személy azonosítója és akikre ki lett írva 	végrehajtásra a feladat.
+	- Comment -> A különboző kiírt feladatokhoz hozzászólást lehet "fűzni" írni, így a jobb kommunikációt fennttartva.
+	- Tags -> Végül a tagek amik segítségével a különböző feladatokat extra információval eléréssel lehet felruházni.
+
+
                          
