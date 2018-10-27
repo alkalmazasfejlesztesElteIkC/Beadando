@@ -47,5 +47,6 @@ Feladat: Családi TODO
 	- Comment -> A különboző kiírt feladatokhoz hozzászólást lehet "fűzni" írni, így a jobb kommunikációt fennttartva.
 	- Tags -> Végül a tagek amik segítségével a különböző feladatokat extra információval eléréssel lehet felruházni.
 
- 2. ![alt text](http://www.kepfeltoltes.eu/images/2018/10/311UML.png)
+ 2. 
+ 	- ![alt text](http://www.kepfeltoltes.eu/images/2018/10/311UML.png)
                          
