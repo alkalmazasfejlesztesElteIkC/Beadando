@@ -73,12 +73,12 @@ Feladat: Családi TODO
 		* POST ('/login/signup')
 		* POST ('/login/login')
 		* Fentiek kivitelezése folyamatban, a FrontEnd-el együtt.
-		* GET ('api/users/all') -> a regisztrált, nyilvántartott felhasználók, adataikkal.
-		* GET ('api/users/lead/{taskname}') -> adott User milyen feladatokat vezet.
-		* GET ('api/users/work/{taskname}') -> adott User mely feladatokon dolgozik.
-		* GET ('api/tasks/all') -> minden eddig felvett feladat.
-		* GET ('api/tasks/lead/{name}') -> adott feladatot ki vezeti.
-		* GET ('api/tasks/work/{workername}') -> adott feladaton kik dolgoznak.
+		* GET ('api/users/all') 
+		* GET ('api/users/lead/{taskname}') 
+		* GET ('api/users/work/{taskname}') 
+		* GET ('api/tasks/all') 
+		* GET ('api/tasks/lead/{name}') 
+		* GET ('api/tasks/work/{workername}')
 
 6. Architechtúra terv:
 	![alt text](http://www.kepfeltoltes.eu/images/2018/10/602szekvencia_terv.png)
