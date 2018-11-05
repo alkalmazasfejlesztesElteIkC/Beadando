@@ -73,7 +73,7 @@ class UserController {
     }
 
     // id alapjan töröl az userek közül
-    @DeleteMapping("/delete/{id}")
+    @GetMapping("/delete/{id}")
     public ResponseEntity deleteUserbyName(@PathVariable Integer id) {
         List<User> users = userService.findAll();
         User user = null;
