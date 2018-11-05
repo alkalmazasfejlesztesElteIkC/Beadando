@@ -64,8 +64,8 @@ class TaskController {
     }
 
     // id alapján töröl feladatot
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity deleteTaskById(@PathVariable Integer id) {
+    @GetMapping("/delete/{id}")
+    public List<Task> deleteTaskById(@PathVariable Integer id) {
         List<Task> tasks = taskService.findAll();
         Task task = null;
         for(Task t : tasks){
@@ -75,8 +75,10 @@ class TaskController {
             }
         }
         taskRepository.delete(task);
-        return ResponseEntity.ok().build();
+        return taskService.findAll();
     }
+
+
     // id alapjan modosit
     @PutMapping("/{id}")
     public ResponseEntity<Task> put(@PathVariable Integer id,  @RequestBody Task task){
@@ -87,7 +89,18 @@ class TaskController {
             }
         }
         return ResponseEntity.notFound().build();
+    }
 
+    @PutMapping("/newTask")
+    public ResponseEntity<Task> add(@RequestBody Task newTask){
+        List<Task> tasks = taskService.findAll();
+        for(Task t : tasks){
+            if( t.getId() == newTask.getId()){
+                return ResponseEntity.badRequest().build();
+            }
+        }
+        //...
+        return ResponseEntity.ok(taskRepository.save(newTask));
     }
 
 }
