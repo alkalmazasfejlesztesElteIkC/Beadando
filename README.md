@@ -68,17 +68,18 @@ Feladat: Családi TODO
 	 - Könyvtárszerkezet megfelele a fenti képnek, ahol a controller a különböző végpontokat tartalmazzák, a modell az lapvető UML diagrammnál részletezett osztályokat, a repository és service ezek elérését managelését biztosítják.
 	 
  5. Végpontok: Fejlesztés folyamatban, lehet válzotás,bővülés!
-	* GET ('/login/login')
-	* GET ('/login/signup')
-	* POST ('/login/signup')
-	* POST ('/login/login')
-	* Fentiek kivitelezése folyamatban, a FrontEnd-el együtt.
+ 	
 	* GET ('api/users/all') 
 	* GET ('api/users/lead/{taskname}') 
 	* GET ('api/users/work/{taskname}') 
+	* DELETE ('api/users/delete/{id}')
+	* PUT ('api/users/{id}')
+	* POST ('api/users/register')
 	* GET ('api/tasks/all') 
 	* GET ('api/tasks/lead/{name}') 
 	* GET ('api/tasks/work/{workername}')
+	* DELETE ('api/tasks/delete/{id}')
+	* PUT ('api/tasks/{id}')
 
 6. Architechtúra terv:
 	![alt text](http://www.kepfeltoltes.eu/images/2018/10/602szekvencia_terv.png)
