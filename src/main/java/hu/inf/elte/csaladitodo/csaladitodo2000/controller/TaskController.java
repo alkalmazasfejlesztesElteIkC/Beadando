@@ -6,14 +6,20 @@ import java.util.ArrayList;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import hu.inf.elte.csaladitodo.csaladitodo2000.modell.User;
 import hu.inf.elte.csaladitodo.csaladitodo2000.modell.Task;
 import hu.inf.elte.csaladitodo.csaladitodo2000.service.TaskService;
 import hu.inf.elte.csaladitodo.csaladitodo2000.service.UserService;
+import hu.inf.elte.csaladitodo.csaladitodo2000.repository.TaskRepository;
+
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
 @RestController
@@ -24,6 +30,8 @@ class TaskController {
     private TaskService taskService;
     @Autowired
     private UserService userService;
+    @Autowired
+    private TaskRepository taskRepository;
 
     @GetMapping("/all")
     public List<Task> all() {
@@ -31,7 +39,7 @@ class TaskController {
     }
 
     // Melyik Taskot ("feladatot") vezeti a paraméterben adott illető.
-    @RequestMapping("/lead/{name}")
+    @GetMapping("/lead/{name}")
     public List<Task> findLeadUserTasks(@PathVariable(value="name") String username){
         List<Task> lista = new ArrayList<>();
         for(Task t : taskService.findAll()){
@@ -43,7 +51,7 @@ class TaskController {
     }
 
     // Mely feladatokon dolgozik a paraméterben kapott illető.
-    @RequestMapping("/work/{workername}")
+    @GetMapping("/work/{workername}")
     public List<Task> findWorkUserTasks(@PathVariable(value="workername") String username){
         User user = null;
         for(User u : userService.findAll()){
@@ -53,6 +61,33 @@ class TaskController {
             }
         }
         return user.getTasksToDo();
+    }
+
+    // id alapján töröl feladatot
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity deleteTaskById(@PathVariable Integer id) {
+        List<Task> tasks = taskService.findAll();
+        Task task = null;
+        for(Task t : tasks){
+            if( t.getId() == id){
+                task = t;
+                break;
+            }
+        }
+        taskRepository.delete(task);
+        return ResponseEntity.ok().build();
+    }
+    // id alapjan modosit
+    @PutMapping("/{id}")
+    public ResponseEntity<Task> put(@PathVariable Integer id,  @RequestBody Task task){
+        for(Task t : taskService.findAll()){
+            if( t.getId() == id){
+                task.setId(id);
+                return ResponseEntity.ok(taskRepository.save(task));
+            }
+        }
+        return ResponseEntity.notFound().build();
+
     }
 
 }
