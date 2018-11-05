@@ -92,7 +92,7 @@ class TaskController {
     }
 
     @PutMapping("/newTask")
-    public ResponseEntity<Task> add(@RequestBody Task newTask){
+    public ResponseEntity<Task> addTask(@RequestBody Task newTask){
         List<Task> tasks = taskService.findAll();
         for(Task t : tasks){
             if( t.getId() == newTask.getId()){
@@ -101,6 +101,22 @@ class TaskController {
         }
         //...
         return ResponseEntity.ok(taskRepository.save(newTask));
+    }
+
+    @PutMapping("{id}/addComment")
+    public ResponseEntity<Task> addComment(@PathVariable Integer taskId, @RequestBody Comment newComment){
+        List<Task> tasks = taskService.findAll();
+        Task task = null;
+        for(Task t : tasks){
+            if( t.getId() == taskId){
+                task=t;
+                task.getCommments.add(newComment);
+                taskRepository.delete(t);
+                break;
+            }
+        }
+        //...
+        return ResponseEntity.ok(taskRepository.save(task));
     }
 
 }
