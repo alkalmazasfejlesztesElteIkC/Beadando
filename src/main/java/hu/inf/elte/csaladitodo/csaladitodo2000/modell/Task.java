@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-import javax.persistence.JoinTable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -37,11 +37,11 @@ public class Task {
     @JsonIgnore
     private User lead;
 
-    @ManyToMany(mappedBy = "tasksToDo")
+    @ManyToMany(mappedBy = "tasksToDo",cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JsonIgnore
     private List<User> workers;
 
-    @OneToMany(mappedBy = "task")
+    @OneToMany(mappedBy = "task", cascade = CascadeType.ALL)
     private List<Comment> comments;
 
 }
