@@ -28,7 +28,7 @@ public class TaskService {
     }
 
 
-    public Optional<Task> findByTaskId(int taskId) {
+    public Optional<Task> findTaskById(int taskId) {
         return taskRepository.findById(taskId);
     }
 

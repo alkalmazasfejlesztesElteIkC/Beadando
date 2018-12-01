@@ -21,7 +21,6 @@ import hu.inf.elte.csaladitodo.csaladitodo2000.modell.Comment;
 import hu.inf.elte.csaladitodo.csaladitodo2000.modell.Task;
 import hu.inf.elte.csaladitodo.csaladitodo2000.service.TaskService;
 import hu.inf.elte.csaladitodo.csaladitodo2000.service.UserService;
-import hu.inf.elte.csaladitodo.csaladitodo2000.repository.CommentRepository;
 import hu.inf.elte.csaladitodo.csaladitodo2000.repository.TaskRepository;
 import hu.inf.elte.csaladitodo.csaladitodo2000.repository.UserRepository;
 
@@ -35,20 +34,18 @@ class TaskController {
     @Autowired
     private TaskService taskService;
 
-    @Autowired
-    private CommentRepository commentRepository;
-
-
+    @CrossOrigin
     @GetMapping("/all")
     public ResponseEntity<List<Task>> all() {
         return ResponseEntity.ok(taskService.findAll());
     }
 
+    @CrossOrigin
     @GetMapping("/get/{id}")
-    public ResponseEntity<Task> findTaskById(@PathVariable(value="id") int id){
-        Optional<Task> optionalTask = taskService.findByTaskId(id);
+    public ResponseEntity<Task> findTaskById(@PathVariable("id") int id){
+        Optional<Task> optionalTask = taskService.findTaskById(id);
         if (optionalTask.isPresent()) {
-            return ResponseEntity.ok().build();
+            return ResponseEntity.ok(optionalTask.get());
         }
         else {
             return ResponseEntity.notFound().build();
@@ -56,6 +53,7 @@ class TaskController {
     }
 
     // Melyik Taskot ("feladatot") vezeti a paraméterben adott illető.
+    @CrossOrigin
     @GetMapping("/lead/{id}")
     public ResponseEntity<List<Task>> findLeadUserTasks(@PathVariable(value="id") int id){
         return ResponseEntity.ok(taskService.findLeadUserTasks(id));
@@ -63,17 +61,18 @@ class TaskController {
     }
 
     // Mely feladatokon dolgozik a paraméterben kapott illető.
+    @CrossOrigin
     @GetMapping("/work/{workerId}")
     public ResponseEntity<List<Task>> findWorkUserTasks(@PathVariable(value="workerId") int id){
         return ResponseEntity.ok(taskService.findWorkUserTasks(id));
     }
     
 
-// id alapján töröl feladatot
+    // id alapján töröl feladatot
     @CrossOrigin
     @DeleteMapping("/delete/{id}")
     public ResponseEntity update(@PathVariable("id") int id) {
-        Optional<Task> optionalTask = taskService.findByTaskId(id);
+        Optional<Task> optionalTask = taskService.findTaskById(id);
 
         if (optionalTask.isPresent()) {
             taskService.delete(optionalTask.get());
@@ -94,7 +93,7 @@ class TaskController {
     @CrossOrigin
     @PutMapping("/{taskId}")
     public ResponseEntity<Task> update(@RequestBody Task task, @PathVariable("taskId") int id) {
-        Optional<Task> optionalTask = taskService.findByTaskId(id);
+        Optional<Task> optionalTask = taskService.findTaskById(id);
 
         if (optionalTask.isPresent()) {
             task.setId(id);

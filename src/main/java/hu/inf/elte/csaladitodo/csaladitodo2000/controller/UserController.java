@@ -1,6 +1,7 @@
 package hu.inf.elte.csaladitodo.csaladitodo2000.controller;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.ArrayList;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,62 +32,73 @@ class UserController {
 
     @Autowired
     private UserService userService;
-    @Autowired
-    private TaskService taskService;
-    @Autowired
-    private UserRepository userRepository;
 
-
+    // teljes user listazas
+    @CrossOrigin
     @GetMapping("/all")
-    public List<User> all() {
-        return userService.findAll();
+    public ResponseEntity<List<User>> all() {
+        return ResponseEntity.ok(userService.findAll());
+    }
+
+    // id alapjan egy user
+    @CrossOrigin
+    @GetMapping("/get/{id}")
+    public ResponseEntity<User> findUserById(@PathVariable(value="id") int id){
+        Optional<User> optionalUser = userService.findUserById(id);
+        if (optionalUser.isPresent()) {
+            return ResponseEntity.ok(optionalUser.get());
+        }
+        else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     // Ki vezeti az adott feladatot ami kiírásra került.
-    @GetMapping("/lead/{taskname}")
-    public String findLeadTask(@PathVariable(value="taskname") String taskname){
-        Task task = null;
-        for(Task t : taskService.findAll()){
-            if (t.getTaskname().equals(taskname)){
-                task = t;
-                break;
-            }
-        }
-        return task.getLead().getName();
+    @CrossOrigin
+    @GetMapping("/lead/{id}")
+    public ResponseEntity<User> findLeadUserTasks(@PathVariable(value="id") int id){
+        return ResponseEntity.ok(userService.findLeadUserTasks(id));
+
     }
 
     // Akik egy adott Taskon ("feladaton") dolgoznak.
-    @GetMapping("/work/{taskname}")
-    public List<String> findWorersOnTask(@PathVariable(value="taskname") String taskname){
-        Task task = null;
-        for(Task t : taskService.findAll()){
-            if(t.getTaskname().equals(taskname)){
-                task = t;
-                break;
-            }
-        }
-        List<User> userlist = task.getWorkers();
-        List<String> stringUsers = new ArrayList<>();
-        for(User u : userlist){
-            stringUsers.add(u.getName());
-        }
-        return stringUsers;
+    @CrossOrigin
+    @GetMapping("/work/{taskId}")
+    public ResponseEntity<List<User>> findWorkUserTasks(@PathVariable(value="taskId") int id){
+        return ResponseEntity.ok(userService.findWorkUserTasks(id));
     }
 
-    // id alapjan töröl az userek közül
-    @GetMapping("/delete/{id}")
-    public ResponseEntity deleteUserbyName(@PathVariable Integer id) {
-        List<User> users = userService.findAll();
-        User user = null;
-        for(User u : users){
-            if( u.getId() == id){
-                user = u;
-                break;
-            }
+    // id alapjan torol
+    @CrossOrigin
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity update(@PathVariable("id") int id) {
+        Optional<User> optionalUser = userService.findUserById(id);
+
+        if (optionalUser.isPresent()) {
+            userService.delete(optionalUser.get());
+            return ResponseEntity.ok().build();
         }
-        userRepository.delete(user);
-        return ResponseEntity.ok().build();
+        else {
+            return ResponseEntity.notFound().build();
+        }
     }
+    /*
+    // id alapján modositas
+    @CrossOrigin
+    @PutMapping("/{taskId}")
+    public ResponseEntity<Task> update(@RequestBody Task task, @PathVariable("taskId") int id) {
+        Optional<Task> optionalUser = userService.findTaskById(id);
+
+        if (optionalUser.isPresent()) {
+            user.setId(id);
+            return ResponseEntity.ok(optionalUser.save(task));
+        }
+        else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    /*
     // id alapján modositas
     @PutMapping("/{id}")
     public ResponseEntity<User> put(@PathVariable Integer id,  @RequestBody User user){
@@ -98,21 +111,6 @@ class UserController {
         return ResponseEntity.notFound().build();
 
     }
-
-    //regisztracio
-    @PostMapping("/register")
-    public ResponseEntity<User> post(@RequestBody User user) {
-        List<User> users = userService.findAll();
-        for(User u : users){
-            if( u.getId() == user.getId()){
-                return ResponseEntity.badRequest().build();
-            }
-        }
-        //user.setId(null);
-        //user.setPassword(passwordEncoder.encode(user.getPassword()));
-        //user.setName(User.Role.ROLE_USER);
-        return ResponseEntity.ok(userRepository.save(user));
-    }
-
+*/
 
 }
